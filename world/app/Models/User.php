@@ -88,4 +88,32 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    /**
+     * Checks if a user is an admin
+     *
+     * @return void
+     */
+    public function is_author()
+    {
+        $role = $this->role;
+        if ($role == 'author') {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Checks if a user is an admin
+     *
+     * @return void
+     */
+    public function is_subscriber()
+    {
+        $role = $this->role;
+        if ($role == 'subscriber') {
+            return true;
+        }
+        return false;
+    }
 }

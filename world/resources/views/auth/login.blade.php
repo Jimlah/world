@@ -21,6 +21,7 @@
         </style>
     </head>
     <body>
+        @include('components.flash-message')
 
         <form action="" method="post">
             @csrf

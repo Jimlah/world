@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,9 +24,10 @@ class LoginController extends Controller
         $auth = Auth::attempt($credentials);
 
         if(!$auth){
-            return redirect()->back();
+            return redirect()->back()
+                    ->withErrors('Invalid Credentials');
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard')->with('success', 'You have Successfully Logged In');
     }
 }

@@ -22,13 +22,13 @@ class RegisterController extends Controller
             'password' => 'required',
         ]);
 
-        $user = User::create([
+        User::create([
             'name' => trim($request->firstname . ' ' . $request->lastname),
             'email' => strtolower($request->email),
             'password' => bcrypt($request->password)
         ]);
 
-        session()->flash('msg', 'Your account is created');
+        session()->flash('success', 'Your account is created');
         return redirect()->back();
     }
 }

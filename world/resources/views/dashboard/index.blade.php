@@ -23,18 +23,11 @@
     <body>
         @include('components.flash-message')
 
-        <form action="" method="post">
-            @csrf
-            <label for="firstname">Firstname</label>
-            <input type="name" name="firstname" id="firstname">
-            <label for="lastname">Lastname</label>
-            <input type="name" name="lastname" id="lastname">
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password">
-            <button type="submit">Submit</button>
-        </form>
+        Hello World
+
+        <x-nav>
+
+        </x-nav>
 
     </body>
 </html>
