@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Models\Posts;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,12 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return "Hello";
+        $posts = Posts::where('active', 1)
+                    ->orderBy('created_at', 'desc')
+                    ->paginate(10);
+        return view('dashboard.posts', [
+            'posts' => $posts
+        ]);
     }
 
     /**
@@ -24,7 +30,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return "HI";
+        return view('dashboard.posts.create');
     }
 
     /**
@@ -35,7 +41,22 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        return "HI";
+        $posts = new Posts();
+        $posts->title = $request->get('title');
+        $posts->body = $request->get('body');
+        $posts->slug = Str::slug($posts->title);
+        $posts->author_id = $request->user()->id;
+
+        if ($request->has("save")) {
+            $posts->active = false;
+            $msg = 'Post has been saved successfully';
+        }else{
+            $posts->active = true;
+            $msg = 'Post has been successfully Published';
+        }
+
+        $posts->save();
+        return redirect('edit/' . $posts->slug)->with('success', $msg);
     }
 
     /**

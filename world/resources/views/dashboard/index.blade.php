@@ -28,6 +28,14 @@
         <x-nav>
 
         </x-nav>
+        {{-- {{$posts}} --}}
+
+        @foreach ($posts as $post)
+            {{$post->id}} <br>
+            {{-- @foreach ($comments as $comment)
+                -- {{$comment->id}} <br>
+            @endforeach --}}
+        @endforeach
 
     </body>
 </html>

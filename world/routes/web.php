@@ -33,7 +33,7 @@ Route::post('register/', [RegisterController::class, 'register']);
 
 Route::get('dashboard/', [IndexController::class, 'index'])->name('dashboard');
 
-Route::resource('dashboard/posts/', 'App\Http\Controllers\User\PostsController');
+// Route::resource('dashboard/posts/', 'App\Http\Controllers\User\PostsController');
 
 // Route::get('dashboard/posts/', [PostsController::class, 'index']);
 // Route::get('dashboard/posts/create', [PostsController::class, 'create']);
