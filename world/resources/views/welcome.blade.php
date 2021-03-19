@@ -21,7 +21,10 @@
         </style>
     </head>
     <body>
-        <div class="h-6 w-6 bg-blue-500">
+        <x-nav>
+
+        </x-nav>
+        <div class="w-6 h-6 bg-blue-500">
             Hello
         </div>
     </body>

@@ -20,22 +20,17 @@
             }
         </style>
     </head>
-    <body>
-        @include('components.flash-message')
+    <body class="bg-blue-50">
+        <div class="grid grid-cols-6">
+            <x-nav>
 
-        Hello World
+            </x-nav>
+            <x-head>
 
-        <x-nav>
+            </x-head>
 
-        </x-nav>
-        {{-- {{$posts}} --}}
 
-        @foreach ($posts as $post)
-            {{$post->id}} <br>
-            {{-- @foreach ($comments as $comment)
-                -- {{$comment->id}} <br>
-            @endforeach --}}
-        @endforeach
-
+            @include('components.flash-message')
+        </div>
     </body>
 </html>
