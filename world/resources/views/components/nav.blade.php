@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-between h-screen col-span-3 py-5 bg-white sm:col-span-2 md:col-span-1">
+<div class="z-50 flex flex-col items-center justify-between hidden h-screen col-span-3 py-5 bg-white sm:col-span-2 md:col-span-1">
     <div class="flex flex-col w-10/12 space-y-10">
         <div class="flex items-center">
             <span><svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"

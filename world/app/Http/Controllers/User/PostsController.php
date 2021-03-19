@@ -13,12 +13,28 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $q = $request->q ?? '';
+        $t = $request->t ?? 0;
+
+        $search = function ($query) use ($q){
+            $query->where('title', 'like', "%$q%");
+        };
+
+        $type = function ($query) use ($t){
+            if (!$t) {
+                $query->where('author_id', auth()->user()->id);
+            }
+        };
+
         $posts = Posts::where('active', 1)
+                    ->where($search)
+                    ->where($type)
                     ->orderBy('created_at', 'desc')
                     ->paginate(10);
-        return view('dashboard.posts', [
+
+        return view('dashboard.posts.index', [
             'posts' => $posts
         ]);
     }
