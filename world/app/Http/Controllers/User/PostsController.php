@@ -67,7 +67,15 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        return "HI";
+        $post = Posts::where('id', $id)->first();
+        if (!$post) {
+            return redirect('dashboard/')->withErrors('Request page not Found');
+        }
+        $comments = $post->comments;
+        return view('dashboard.posts.show',[
+            'post' => $post,
+            'comments' => $comments
+        ]);
     }
 
     /**

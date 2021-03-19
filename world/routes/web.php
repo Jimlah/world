@@ -38,7 +38,7 @@ Route::get('dashboard/', [IndexController::class, 'index'])->name('dashboard');
 // Route::get('dashboard/posts/', [PostsController::class, 'index']);
 // Route::get('dashboard/posts/create', [PostsController::class, 'create']);
 // Route::post('dashboard/posts/', [PostsController::class, 'store']);
-// Route::get('dashboard/posts/{id}', [PostsController::class, 'show']);
+Route::get('dashboard/posts/{id}', [PostsController::class, 'show']);
 // Route::get('dashboard/posts/{id}/edit', [PostsController::class, 'edit']);
 // Route::put('dashboard/posts/{id}/update', [PostsController::class, 'update']);
 // Route::delete('dashboard/posts/{id}/destroy', [PostsController::class, 'destroy']);
