@@ -26,15 +26,15 @@
             <button class="fixed top-5 left-5 md:hidden" x-on:click="open = true">
                 <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="fixed z-50 w-4/12 md:w-2/12" :class="{'hidden': open === false}" @click.away="open = false">
+            <div class="fixed z-50 w-2/3 h-screen sm:w-4/12 md:w-2/12" :class="{'hidden': open === false}" id="butnav">
 
                 <x-nav>
 
                 </x-nav>
             </div>
-            <div class="self-end w-full px-5 py-5 md:ml-56 md:w-10/12">
+            <div class="self-end w-full h-screen px-5 py-5 overflow-scroll md:ml-48 lg:ml-56 md:w-10/12">
                 <div class="flex items-center justify-end w-full mb-5 space-x-2">
-                    <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="" class="w-8 h-8 rounded-full">
+                    {{-- <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="" class="w-8 h-8 rounded-full"> --}}
                     <span class="font-semibold">{{auth()->user()->name}}</span>
                 </div>
                 @include('components.flash-message')
@@ -47,7 +47,13 @@
 <script>
     function nav() {
         return{
-            open: window.outerWidth > 768 ? true : false,
+            open: window.outerWidth >= 768 ? true : false,
+        }
+    }
+    window.addEventListener("resize", rem)
+    function rem() {
+        if (window.outerWidth >= 768) {
+        document.getElementById("butnav").classList.remove('hidden')
         }
     }
 </script>

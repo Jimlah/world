@@ -1,4 +1,7 @@
-<div class="z-50 flex flex-col items-center justify-between w-full h-screen py-5 bg-white">
+<div class="static z-50 flex flex-col items-center justify-between w-full h-full py-5 bg-white">
+    <button class="absolute top-0 right-0 md:hidden" x-on:click="open = false">
+        <svg class="w-8 h-8 text-blue-500 bg-gray-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
     <div class="flex flex-col w-10/12 space-y-10">
         <div class="flex items-center">
             <span><svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
