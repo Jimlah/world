@@ -19,14 +19,24 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
-        <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+       <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
     <body class="bg-blue-50">
-        <div class="grid grid-cols-6">
-            <x-nav>
+        <div class="relative flex" x-data="{open: false}">
+            <button class="fixed top-5 left-5" x-on:click="open = true">
+                <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+            <div class="fixed z-50 w-4/12 md:w-2/12" :class="{'hidden md:block': open === false}" @click.away="open = false">
 
-            </x-nav>
-            <div class="px-5 py-5 sm:fixed sm:col-span-4">
+                <x-nav>
+
+                </x-nav>
+            </div>
+            <div class="self-end w-full px-5 py-5 md:ml-56 md:w-10/12">
+                <div class="flex items-center justify-end w-full mb-5 space-x-2">
+                    <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="" class="w-8 h-8 rounded-full">
+                    <span class="font-semibold">{{auth()->user()->name}}</span>
+                </div>
                 @include('components.flash-message')
                 @yield('body')
             </div>

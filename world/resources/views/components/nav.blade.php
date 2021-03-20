@@ -1,4 +1,4 @@
-<div class="z-50 flex flex-col items-center justify-between hidden h-screen col-span-3 py-5 bg-white sm:col-span-2 md:col-span-1">
+<div class="z-50 flex flex-col items-center justify-between w-full h-screen py-5 bg-white">
     <div class="flex flex-col w-10/12 space-y-10">
         <div class="flex items-center">
             <span><svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -7,7 +7,7 @@
                         d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                     </path>
                 </svg></span>
-            <span class="font-bold text-blue-600">The Urban Project</span>
+            <span class="font-bold text-blue-600">The Urbann Project</span>
         </div>
 
         <div class="flex flex-col space-y-2 divide-y divide-gray-100">
