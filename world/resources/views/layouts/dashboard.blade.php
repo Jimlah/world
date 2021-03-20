@@ -22,11 +22,11 @@
        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     </head>
     <body class="bg-blue-50">
-        <div class="relative flex" x-data="{open: false}">
-            <button class="fixed top-5 left-5" x-on:click="open = true">
+        <div class="relative flex" x-data="nav()">
+            <button class="fixed top-5 left-5 md:hidden" x-on:click="open = true">
                 <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
-            <div class="fixed z-50 w-4/12 md:w-2/12" :class="{'hidden md:block': open === false}" @click.away="open = false">
+            <div class="fixed z-50 w-4/12 md:w-2/12" :class="{'hidden': open === false}" @click.away="open = false">
 
                 <x-nav>
 
@@ -43,3 +43,11 @@
         </div>
     </body>
 </html>
+
+<script>
+    function nav() {
+        return{
+            open: window.outerWidth > 768 ? true : false,
+        }
+    }
+</script>
