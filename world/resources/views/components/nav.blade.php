@@ -16,7 +16,7 @@
         <div class="flex flex-col space-y-2 divide-y divide-gray-100">
             <div class="flex flex-col space-y">
                 <a href={{ route('dashboard') }}
-                    class="flex items-center w-full p-2 space-x-2 font-semibold text-blue-400 rounded-lg hover:bg-blue-50 hover:text-blue-600">
+                    class="flex items-center w-full p-2 space-x-2 font-semibold text-blue-400 rounded-lg hover:bg-blue-50 active:bg-blue-50 active:bg-blue-500 hover:text-blue-600">
                     <span><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
