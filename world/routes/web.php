@@ -37,7 +37,7 @@ Route::get('dashboard/', [IndexController::class, 'index'])->name('dashboard');
 
 Route::get('dashboard/posts/', [PostsController::class, 'index'])->name('posts');
 Route::get('dashboard/posts/create', [PostsController::class, 'create'])->name('post.create');
-Route::post('dashboard/posts/', [PostsController::class, 'store']);
+Route::post('dashboard/posts/', [PostsController::class, 'store'])->name('post.store');
 Route::get('dashboard/posts/{id}', [PostsController::class, 'show'])->name('post.show');
 Route::get('dashboard/posts/{id}/edit', [PostsController::class, 'edit'])->name('post.edit');
 Route::put('dashboard/posts/{id}/update', [PostsController::class, 'update']);

@@ -109,7 +109,7 @@
         <span class="text-base font-bold">New Draft</span>
         <p class="text-sm font-light text-center text-opacity-25">Do you want to make a new draft to write something?
         </p>
-        <a href="" class="w-full py-2 font-bold text-center text-blue-600 bg-white rounded-lg hover:bg-gray-200">Create
+        <a href={{ route('post.create') }} class="w-full py-2 font-bold text-center text-blue-600 bg-white rounded-lg hover:bg-gray-200">Create
             File</a>
     </div>
     {{-- @if (auth()

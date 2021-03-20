@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Posts;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
@@ -18,21 +19,21 @@ class PostsController extends Controller
         $q = $request->q ?? '';
         $t = $request->t ?? 0;
 
-        $search = function ($query) use ($q){
+        $search = function ($query) use ($q) {
             $query->where('title', 'like', "%$q%");
         };
 
-        $type = function ($query) use ($t){
+        $type = function ($query) use ($t) {
             if (!$t) {
                 $query->where('author_id', auth()->user()->id);
             }
         };
 
         $posts = Posts::where('active', 1)
-                    ->where($search)
-                    ->where($type)
-                    ->orderBy('created_at', 'desc')
-                    ->paginate(10);
+            ->where($search)
+            ->where($type)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('dashboard.posts.index', [
             'posts' => $posts
@@ -57,22 +58,27 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $posts = new Posts();
-        $posts->title = $request->get('title');
-        $posts->body = $request->get('body');
-        $posts->slug = Str::slug($posts->title);
-        $posts->author_id = $request->user()->id;
+        $post = new Posts();
+        $post->title = $request->get('title');
+        $post->body = $request->get('body');
+        $post->slug = Str::slug($post->title);
+        $post->author_id = $request->user()->id;
+
+        $duplicate = Posts::where('slug', $post->slug)->first();
+        if ($duplicate) {
+            return redirect(route('post.create'))->withErrors('Title already exists.')->withInput();
+        }
 
         if ($request->has("save")) {
-            $posts->active = false;
+            $post->active = false;
             $msg = 'Post has been saved successfully';
-        }else{
-            $posts->active = true;
+        } else {
+            $post->active = true;
             $msg = 'Post has been successfully Published';
         }
 
-        $posts->save();
-        return redirect('edit/' . $posts->slug)->with('success', $msg);
+        $post->save();
+        return redirect('post/' . $post->id)->with('success', $msg);
     }
 
     /**
@@ -88,7 +94,7 @@ class PostsController extends Controller
             return redirect('dashboard/')->withErrors('Request page not Found');
         }
         $comments = $post->comments;
-        return view('dashboard.posts.show',[
+        return view('dashboard.posts.show', [
             'post' => $post,
             'comments' => $comments
         ]);
