@@ -1,4 +1,4 @@
-<div class="static z-50 flex flex-col items-center justify-between w-full h-full py-5 bg-white">
+<div class="static z-50 flex flex-col items-center justify-between w-full h-full py-5 bg-purple-900">
     <button class="absolute top-0 right-0 md:hidden" x-on:click="open = false">
         <svg class="w-8 h-8 text-blue-500 bg-gray-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
     </button>
@@ -16,14 +16,14 @@
         <div class="flex flex-col space-y-2 divide-y divide-gray-100">
             <div class="flex flex-col space-y">
                 <a href={{ route('dashboard') }}
-                    class="flex items-center w-full p-2 space-x-2 font-semibold text-blue-400 rounded-lg hover:bg-blue-50 active:bg-blue-50 active:bg-blue-500 hover:text-blue-600">
+                    class="flex items-center w-full p-2 space-x-2 font-semibold text-blue-400 rounded-lg hover:bg-purple-500 hover:text-white">
                     <span><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z">
                             </path>
                         </svg></span>
-                    <span>Dashboard</span>
+                    <span class="text-white">Dashboard</span>
                 </a>
                 <a href={{ route('posts')}}
                     class="flex items-center w-full p-2 space-x-2 font-semibold text-blue-400 rounded-lg hover:bg-blue-50 hover:text-blue-600">

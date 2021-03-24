@@ -104,6 +104,26 @@ class User extends Authenticatable
     }
 
     /**
+     * Checks if a user is the owner of the post
+     *
+     * @return void
+     */
+    public function is_post($id)
+    {
+        return $this->id == $id;
+    }
+
+    /**
+     * Checks if a user is the owner of the comment
+     *
+     * @return void
+     */
+    public function is_comment($id)
+    {
+        return $this->id == $id;
+    }
+
+    /**
      * Checks if a user is an admin
      *
      * @return void

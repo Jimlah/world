@@ -21,9 +21,6 @@
         </style>
     </head>
     <body>
-        <x-nav>
-
-        </x-nav>
         <div class="w-6 h-6 bg-blue-500">
             Hello
         </div>

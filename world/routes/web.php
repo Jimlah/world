@@ -40,5 +40,5 @@ Route::get('dashboard/posts/create', [PostsController::class, 'create'])->name('
 Route::post('dashboard/posts/', [PostsController::class, 'store'])->name('post.store');
 Route::get('dashboard/posts/{id}', [PostsController::class, 'show'])->name('post.show');
 Route::get('dashboard/posts/{id}/edit', [PostsController::class, 'edit'])->name('post.edit');
-Route::put('dashboard/posts/{id}/update', [PostsController::class, 'update']);
+Route::post('dashboard/posts/{id}/update', [PostsController::class, 'update'])->name('post.update');
 Route::delete('dashboard/posts/{id}/destroy', [PostsController::class, 'destroy'])->name('post.destroy');

@@ -78,7 +78,7 @@ class PostsController extends Controller
         }
 
         $post->save();
-        return redirect('post/' . $post->id)->with('success', $msg);
+        return redirect(route('post.create', [$id => $post->id]))->with('success', $msg);
     }
 
     /**
@@ -106,9 +106,15 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        return "HI";
+        $post = Posts::where('id', $id)->first();
+        if ($request->user()->id == $post->author_id || auth()->user()->is_admin()) {
+            return view('dashboard.posts.edit', [
+                'post' => $post
+            ]);
+        }
+         return redirect()->back()->withErrors("You do not have sufficient Permission to access resources");
     }
 
     /**
@@ -120,7 +126,30 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "HI";
+        $post = Posts::where('id', $id)->first();
+        if (!$post) {
+            return redirect(route('post'))->withErrors('error', 'Post does not exist');
+        }
+
+        if (!($request->user()->id == $post->author_id || auth()->user()->is_admin())) {
+            return redirect()->back()->with('warning', "You do not have sufficient permisson to edit this resource");
+        }
+
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+
+
+        if ($request->has("save")) {
+            $post->active = false;
+            $msg = 'Post has been updated and saved successfully';
+        } else {
+            $post->active = true;
+            $msg = 'Post has been successfully updated and Published';
+        }
+
+        $post->save();
+
+        return redirect()->back()->with('success', $msg);
     }
 
     /**
@@ -131,6 +160,14 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        return "HI";
+        $post = Posts::find($id);
+        dd($post);
+        if(!$post){
+            return redirect()->back()->with('warning', 'Post not found');
+        }
+        if ($request->user()->id == $post->author_id || auth()->user()->is_admin()) {
+            return \redirect()->back()->with('success', 'You have successfully deleted the post');
+        }
+         return redirect()->back()->withErrors("You do not have sufficient Permission to delete resources");
     }
 }
