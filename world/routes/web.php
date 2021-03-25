@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\User\IndexController;
 use App\Http\Controllers\User\PostsController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Main\IndexController as MainIndexController;
 use Illuminate\Routing\Router;
 
 /*
@@ -19,9 +20,7 @@ use Illuminate\Routing\Router;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[MainIndexController::class, 'index'])->name("main");
 
 Route::get('login/', [LoginController::class, 'index'])->name('login');
 Route::post('login/', [LoginController::class, 'login']);
