@@ -102,22 +102,21 @@
             </div>
         </header>
     </div>
-    <main class="px-5 mt-10 md:px-36">
+    <main class="px-5 mt-10 sm:px-40 md:px-36">
         <div class="grid grid-flow-row grid-cols-1 md:grid-cols-3 gap-y-5 gap-x-5 md:gap-x-14 ">
             @forelse ($posts as $post)
                 <div class="bg-white shadow-sm">
-                    <div></div>
+                    <div class="bg-center bg-cover {{$post->image() == ''? '' : 'h-96'}}" style="background-image: url('{{$post->image()}}')">
+
+                    </div>
                     <div class="flex flex-col p-5 space-y-1 overflow-hidden">
                         <p>{{ Carbon\Carbon::parse($post->created_at)->diffForHumans() }}</p>
-                        <a href="" class="text-lg font-bold">{{ $post->title }}</a>
+                        <a href="" class="text-lg font-bold">{{ Str::upper($post->title) }}</a>
                     </div>
                 </div>
             @empty
                 No Article Yet
             @endforelse
-            {{-- <div class="flex justify-items-start">
-            {{ $posts->links() }}
-           </div> --}}
         </div>
         <div class="flex items-start justify-between mt-5">
             <a href="{{ $posts->previousPageUrl() }}" class="px-2 py-1 text-white bg-gray-500 rounded-md">

@@ -13,6 +13,7 @@ class IndexController extends Controller
         $posts = Posts::where('active', 1)
                     ->orderBy('created_at', 'desc')
                     ->paginate(18);
+
         return view("welcome", [
             'posts' => $posts
         ]);

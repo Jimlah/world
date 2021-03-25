@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use IvoPetkov\HTML5DOMDocument;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Posts extends Model
 {
@@ -29,5 +30,17 @@ class Posts extends Model
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
+    }
+
+    public function image()
+    {
+        $html = $this->body;
+        $dom = new HTML5DOMDocument();
+        $dom->loadHTML($html);
+        $img = $dom->querySelector('img');
+        if ($img) {
+            return $img->getAttribute('src');
+        }
+        return '';
     }
 }

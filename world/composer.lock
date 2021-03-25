@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ddeabc1ce42c24615f2fd0343a6ea0f2",
+    "content-hash": "da734aa6f1e0c86dd5a002e4e191e620",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -891,6 +891,52 @@
                 "source": "https://github.com/guzzle/psr7/tree/1.7.0"
             },
             "time": "2020-09-30T07:37:11+00:00"
+        },
+        {
+            "name": "ivopetkov/html5-dom-document-php",
+            "version": "v2.2.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ivopetkov/html5-dom-document-php.git",
+                "reference": "13306694beb2d413f9411e20f59a505d2ce3060b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ivopetkov/html5-dom-document-php/zipball/13306694beb2d413f9411e20f59a505d2ce3060b",
+                "reference": "13306694beb2d413f9411e20f59a505d2ce3060b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "php": "7.0.*|7.1.*|7.2.*|7.3.*|7.4.*|8.0.*"
+            },
+            "require-dev": {
+                "ivopetkov/docs-generator": "0.2.*",
+                "phpunit/phpunit": "6.*|7.*|8.*|9.*"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "autoload.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivo Petkov",
+                    "email": "ivo@ivopetkov.com",
+                    "homepage": "http://ivopetkov.com"
+                }
+            ],
+            "description": "HTML5 DOMDocument PHP library (extends DOMDocument)",
+            "support": {
+                "issues": "https://github.com/ivopetkov/html5-dom-document-php/issues",
+                "source": "https://github.com/ivopetkov/html5-dom-document-php/tree/v2.2.9"
+            },
+            "time": "2021-01-17T21:29:24+00:00"
         },
         {
             "name": "laravel/framework",
